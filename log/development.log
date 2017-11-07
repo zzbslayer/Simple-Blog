@@ -2992,3 +2992,97 @@ Processing by ArticlesController#show as HTML
 Completed 200 OK in 26ms (Views: 23.0ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-11-07 16:38:51 +0800
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 234ms (Views: 225.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2017-11-07 16:38:53 +0800
+  
+ActionController::RoutingError (undefined method `http_base_authenticate_with' for ArticlesController:Class
+Did you mean?  http_basic_authenticate_with):
+  
+app/controllers/articles_controller.rb:3:in `<class:ArticlesController>'
+app/controllers/articles_controller.rb:1:in `<top (required)>'
+Started GET "/" for 127.0.0.1 at 2017-11-07 16:39:13 +0800
+Started GET "/" for 127.0.0.1 at 2017-11-07 16:39:23 +0800
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 108ms (Views: 102.3ms)
+
+
+Processing by WelcomeController#index as HTML
+Started GET "/" for 127.0.0.1 at 2017-11-07 16:39:23 +0800
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+  Rendered welcome/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 95ms (Views: 93.4ms)
+
+
+Completed 200 OK in 90ms (Views: 84.6ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2017-11-07 16:39:25 +0800
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (17.4ms)
+Completed 200 OK in 65ms (Views: 46.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2017-11-07 16:39:28 +0800
+Processing by ArticlesController#new as HTML
+Filter chain halted as #<Proc:0x00007fa9efa4ace0@/Users/Wangruiyan/.rbenv/versions/2.3.5/lib/ruby/gems/2.3.0/gems/actionpack-5.1.4/lib/action_controller/metal/http_authentication.rb:70> rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2017-11-07 16:39:37 +0800
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.erb (22.3ms)
+  Rendered articles/new.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 59ms (Views: 55.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/articles" for 127.0.0.1 at 2017-11-07 16:39:51 +0800
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ih26IVXDG6oFo8y3ef9+Vub3YaY4jnX8V6qSTffPcqY/0B9wJKeoRX8W0iLgrODsPtqc6Xn8Kmk9150m77GYDg==", "article"=>{"title"=>"WOW accout completed", "content"=>"as is mentioned"}, "commit"=>"Create Article"}
+Filter chain halted as #<Proc:0x00007fa9efa4ace0@/Users/Wangruiyan/.rbenv/versions/2.3.5/lib/ruby/gems/2.3.0/gems/actionpack-5.1.4/lib/action_controller/metal/http_authentication.rb:70> rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/articles" for 127.0.0.1 at 2017-11-07 16:39:51 +0800
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ih26IVXDG6oFo8y3ef9+Vub3YaY4jnX8V6qSTffPcqY/0B9wJKeoRX8W0iLgrODsPtqc6Xn8Kmk9150m77GYDg==", "article"=>{"title"=>"WOW accout completed", "content"=>"as is mentioned"}, "commit"=>"Create Article"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "WOW accout completed"], ["content", "as is mentioned"], ["created_at", "2017-11-07 08:39:51.531740"], ["updated_at", "2017-11-07 08:39:51.531740"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/articles/12
+Completed 302 Found in 5ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/articles/12" for 127.0.0.1 at 2017-11-07 16:39:51 +0800
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 12]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered articles/show.html.erb within layouts/application (43.3ms)
+Completed 200 OK in 75ms (Views: 67.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2017-11-07 16:39:58 +0800
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 35ms (Views: 32.4ms | ActiveRecord: 0.3ms)
+
+
