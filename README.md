@@ -1,8 +1,9 @@
 # Simple-Blog
 Homework of Practice of Software Engineering Innovation
 
-Use ruby on rails to build this application following the guide of ruby-China
+Use rails to build this application following the guide of ruby-China
 
-This Simple-Blog now allows users to 
-- write their articles
-- save their articles in database
+Login in with user:"zzbslayer" password:"rubyonrails".
+This Simple-Blog allows you to 
+- write/edit/destory articles
+- write/destory comments  

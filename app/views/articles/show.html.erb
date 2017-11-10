@@ -10,6 +10,38 @@
   <dd><%= @article.content %></dd>
 </dl>
 
+<h2>Comments</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= @article.comments.human_attribute_name(:commenter) %></th>
+      <th><%= @article.comments.human_attribute_name(:body) %></th>
+      <th><%= @article.comments.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @article.comments.each do |comment| %>
+      <tr>
+        <td><%= comment.commenter %></td>
+        <td><%= comment.body %></td>
+        <td><%=l comment.created_at %></td>
+        <td>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      [comment.article, comment],
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Add a comment:</h2>
+<%= render 'comments/form' %>
+
 <%= link_to t('.back', :default => t("helpers.links.back")),
               articles_path, :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
